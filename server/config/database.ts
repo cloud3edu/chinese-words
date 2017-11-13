@@ -6,9 +6,7 @@ mongoose.Promise = global.Promise;
 
 if (process.env.NODE_ENV === "testing") {
     mockgoose(mongoose).then((): void => {
-      mongoose.connect("mongodb://example.com/TestingDB", {
-        useMongoClient: true,
-      });
+      mongoose.connect("mongodb://example.com/TestingDB", config.mongodb.options);
     });
 } else {
   console.log("Try to connect mongodb...")
