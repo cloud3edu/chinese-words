@@ -1,0 +1,18 @@
+<h3>我的生字本</h3>
+
+<div *ngIf="words" class="word-body">
+  <div class="pinyin">
+    {{currentWord.pinyin}}
+  </div>
+  <div class="hanzi">
+    {{currentWord.word}}
+  </div>
+  <div class="hanzi-number">
+    {{currentWord.number}}
+  </div>
+  <div>
+    <button class="flip-item" (click)="removeWord()">-</button>
+  </div>
+  <button [disabled]="atBeginning()" class="flip-item" (click)="toPrevious()">&lt;</button>
+  <button [disabled]="atEnd()" class="flip-item" (click)="toNext()">&gt;</button>
+</div>

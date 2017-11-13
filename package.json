@@ -1,0 +1,62 @@
+{
+  "name": "chinese-words",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Chuan Wang",
+  "scripts": {
+    "start": "concurrently \"npm run tsc:w\" \"nodemon dist/app.js\"",
+    "build:client": "tsc -w -p client/src/",
+    "tsc:w": "tsc -w -p ./dev.tsconfig.json",
+    "lint": "tslint server/**/*.ts --fix",
+    "test": "cross-env NODE_ENV=testing && tsc -p ./dev.tsconfig.json && mocha server/tests/ --recursive --color --growl",
+    "build": "tsc -p ./prod.tsconfig.json && ncp './server/assets' './dist/assets'",
+    "test:coverage": "cross-env NODE_ENV=testing && rm -rf coverage/* && tsc -p ./dev.tsconfig.json && node --harmony_default_parameters ./node_modules/istanbul/lib/cli.js cover _mocha --harmony_default_parameters -- server/tests/ --recursive --color --growl"
+  },
+  "engines": {
+    "node": ">= 5.4.1"
+  },
+  "dependencies": {
+    "@angular/common": "~4.3.4",
+    "@angular/compiler": "~4.3.4",
+    "@angular/core": "~4.3.4",
+    "@angular/forms": "~4.3.4",
+    "@angular/http": "~4.3.4",
+    "@angular/platform-browser": "~4.3.4",
+    "@angular/platform-browser-dynamic": "~4.3.4",
+    "@angular/router": "~4.3.4",
+    "body-parser": "^1.17.2",
+    "core-js": "^2.5.1",
+    "express": "^4.15.3",
+    "lodash": "^4.17.4",
+    "mockgoose": "~6.0.8",
+    "mongoose": "^4.11.1",
+    "mongoose-paginate": "^5.0.3",
+    "rxjs": "5.0.1",
+    "swagger-jsdoc": "^1.9.5",
+    "systemjs": "^0.20.19",
+    "typegoose": "^3.6.0",
+    "zone.js": "^0.8.4"
+  },
+  "devDependencies": {
+    "@types/body-parser": "1.16.4",
+    "@types/chai": "^4.0.1",
+    "@types/chai-http": "0.0.30",
+    "@types/express": "^4.0.36",
+    "@types/lodash": "^4.14.80",
+    "@types/node": "^8.0.7",
+    "@types/mocha": "^2.2.41",
+    "@types/mongoose-paginate": "^5.0.6",
+    "@types/swagger-jsdoc": "0.0.1",
+    "chai": "^3.5.0",
+    "ncp": "^2.0.0",
+    "cross-env": "^5.0.5",
+    "chai-http": "^3.0.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2",
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0",
+    "pinyin": "^2.8.3",
+    "typescript": "^2.5.1",
+    "tslint": "^5.4.3"
+  }
+}

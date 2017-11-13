@@ -1,0 +1,9 @@
+<h3>常用1000汉字</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let chapter of chapters" [routerLink]="['/contents', chapter.number]" class="col-1-4">
+    <div class="module chapter">
+      <h4>Chapter {{chapter.number}}</h4>
+      <h4>{{chapter.name}}</h4>
+    </div>
+  </a>
+</div>
