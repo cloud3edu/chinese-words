@@ -5,7 +5,7 @@ import { AuthorModel } from "../author/author.model";
 
 export class PostController {
 
-  static async getPosts(req: Request, res: Response, next: ): Promise<void> {
+  static async getPosts(req: Request, res: Response): Promise<void> {
     const posts = await PostModel.find({})
     .populate("author")
     .exec();
